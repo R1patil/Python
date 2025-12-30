@@ -51,3 +51,34 @@ r5=r1*4
 print(r3)
 print(r4)
 print(r5)
+
+'''Run time Polymorphism '''
+#Achievd through method overriding ,where a subclass provide a specific implmentation of a method that is alerdy defined in its superclass
+
+import math
+# Base class Shape
+class Shape:
+    def calculate_area(self):
+        pass # To be overridden by subclasses
+# Subclass Rectangle
+class Rectangle(Shape):
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+    def calculate_area(self):
+        return self.length * self.breadth
+# Subclass Circle
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def calculate_area(self):
+        return math.pi * self.radius * self.radius
+# Function to print area of any shape
+def print_area(shape):
+        print("Area:", shape.calculate_area())
+# Creating instances of different shapes
+rectangle = Rectangle(5, 4)
+circle = Circle(3)
+# Printing areas
+print_area(rectangle)# Output: Area: 20
+print_area(circle) # Output: Area: 28.274333882308138
